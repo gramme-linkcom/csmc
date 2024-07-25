@@ -1,97 +1,71 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja">
   <head>
-    <base id="base" href="" />
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>ぐらむ/Gramme</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/Phonestyle.css">
-    <link rel="stylesheet" href="/base.css">
-    <link rel="stylesheet" href="/font.css">
+    <title>City MC -ログインページ-</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="loading.css">
+    <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="Script.js" defer></script>
+    <script src="main.js"></script>
+    <script src="Site_sizechenger.js"></script>
+    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="Style.css">
   </head>
   <body>
-      <header id="header">
-      <div class="header-logo">
-        <a href="https://www.gramme.f5.si/"><img src="/title.png" width="150px"></a>
+    <header>
+
+    </header>
+  <main>
+      <div class="loading" style="display:none;">
+        <div class="loading-frame">
+          <h2>処理中です<br>しばらくお待ち下さい
+          </h2>
+          <span class="loader"></span>
+        </div>
       </div>
-      <nav id="navi">
-        <ul class="header-list">
-          <li>
-            <a href="" title="ぐらむについて">
-              <img src="/gramme.png" alt="gramme"  width="25px" height="25px">
-              AboutMe
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/gramme_linkcom" target="_blank" title="ぐらむのtwitter">
-              <img src="/twitter.png" alt="twitter"  width="25px" height="25px"></img>
-                Twitter
-            </a>
-          </li>
-          <li>
-            <a href="" title="お知らせ">
-              <img src="/Notification.png" alt="image.png" width="25px" height="25px"></img>
-              Notice
-            </a>
-          </li>
+      <div class="main">
+        <img src="Logo.png">
+        <nav>
+          <ul>
+            <li><h1 class="join">参加申し込み（無料）</h1></li>
+            <button class="Goto_MakeAc" onclick="location.href='/city/register.html'">新規アカウントで参加申し込み</button>
+            <li><a href="" class="url">ご利用ガイド</a></li>
+          </ul>
         </nav>
+      <div class="login">
+        <div id="Phone_Style">
+          <h2 class="PS">すでにアカウントをお持ちの方は...</h2>
+          <button class="Phone_Style" onclick="Acodion_Menu()">ユーザーページログイン</button>
+          <h2 class="PS" id="PS_A">参加がお済みでない方は...</h2>
+          <button id="PS_A" class="Phone_Style" onclick="location.href='/city/register.html'">新規アカウントで参加申し込み</button>
+        </div>
+        <div class="Content" id="Content">
+          <h1 id="PC_Style" >ユーザーページログイン</h1>
+          <form name="LoginForm" method="post">
+          <p class="text">ユーザー名</p>
+          <p id="Name_text" Style="color:red;"></p>
+          <input type="text" id="Name" value="" placeholder=" ユーザー名を入力してください" size="10" required="required" />
+          <p id="Pass" class="text">パスワード</p>
+          <p id="Pass_text" Style="color:red;"></p>
+          <input type="password" id="Password" value="" placeholder=" パスワードを入力してください" size="10" required="required" />
+          <h3 Style="color:red;">【ご利用の皆さまへ】</h3>
+          <ul class="Important" Style="color:red;">
+            <li><h3>本サービスはjava版マインクラフト経済・生活サーバー『CityServer MC』利用者限定のサービスです。ご利用になられていない方のログイン等は一切できません。</h3></li>
+            <li><h3>本サービスを利用する際には、サーバーをご利用になられている方のMinecraft上の名前と参加申し込み時に入力いただきましたパスワードが必要です。</h3></li>
+            <li><h3>パスワードを忘れてしまった方は、<a href="">こちら</a>のページより、指示に従ってパスワードの再設定を行ってください。</h3></li>
+          </ul>
+           <input type="button" class="LoginB" value="ログイン" onclick="Login()">
+        </form>
+        </div>
       </div>
-        <div class="hamburger-menu">
-            <input type="checkbox" id="menu-btn-check">
-            <label for="menu-btn-check" class="menu-btn"><span></span></label>
-            <!--ここからメニュー-->
-            <div class="menu-content">
-                <ul>
-                    <li>
-                        <a href="" title="ぐらむについて">
-                          AboutMe >
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/gramme_linkcom" target="_blank" title="ぐらむのTwitter">
-                          Twitter >
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" title="お知らせ">
-                          Notice >
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!--ここまでメニュー-->
-        </div>
-      </header>
-      <main>
-        <div class="box">
-          <div class="bgImg src1"></div>
-          <div class="bgImg src2"></div>
-          <div class="bgImg src3"></div>
-        </div>
-        <div class="menu_link">
-          <div class="link">
-            <a href=""><span>MYWORKS</span></a>
-            <a href=""><span>SOFTWARE</span></a>
-            <a href=""><span>ABOUTME</span></a>
-            <a href=""><span>NOTICE</span></a>
-            <a href="https://csmc.linkcom.f5.si"><span>PJ CSMC</span></a>
-            <a href=""><span>CONTACT</span></a>
-          </div>
-        </div>
-      </main>
-      <footer>
-        <div>
-          <div class="footer-logo"></div>
-            <div class="footer-list">
-              <ul>
-                <p>2023 @Gramme_linkcom All Rights Reserved</p>
-                <hr>
-                <p>本サイト内で使われている画像や動画・音声等はすべて@gramme_linkcomの著作物です。<br>無断での使用は一切認めません。</p>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+      </div>
+    </main>
+    <footer>
+      <div class="margin"></div>
+    </footer>
   </body>
 </html>
